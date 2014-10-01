@@ -18,7 +18,6 @@
         angular.module(MODULE_GROUP[i],[]);
     }
     angular.module('app',MODULES.concat(MODULE_GROUP)).config(function ($routeProvider,$locationProvider,$httpProvider) {
-        //$locationProvider.html5Mode(true);
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHTTPRequest';
         // ルーティング設定
 //        $routeProvider

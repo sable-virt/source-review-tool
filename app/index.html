@@ -66,12 +66,29 @@
         <option value="xcode">xcode</option>
     </select>
 </header>
-<div id="editors">
-    <div id="html" class="col-xs-{{column}}" ui-ace="{onLoad:onLoadEditor}" ng-model="html" ng-cloak ng-show="view.html"></div>
-    <div id="scss" class="col-xs-{{column}}" ui-ace="{onLoad:onLoadEditor}" ng-model="scss" ng-cloak ng-show="view.scss"></div>
-    <div id="javascript" class="col-xs-{{column}}" ui-ace="{onLoad:onLoadEditor}" ng-model="javascript" ng-cloak ng-show="view.javascript"></div>
-</div>
-
+<form id="editors">
+    <div id="html" class="col-xs-{{column}}" ng-cloak ng-show="view.html">
+        <div data-mode="html" ui-ace="{onLoad:onLoadEditor}" ng-model="html"></div>
+    </div>
+    <div id="scss" class="col-xs-{{column}}" ng-cloak ng-show="view.scss">
+        <div data-mode="scss" ui-ace="{onLoad:onLoadEditor}" ng-model="scss" ></div>
+    </div>
+    <div id="javascript" class="col-xs-{{column}}" ng-cloak ng-show="view.javascript">
+        <div data-mode="javascript" ui-ace="{onLoad:onLoadEditor}" ng-model="javascript"></div>
+    </div>
+</form>
+<script>
+    var TogetherJSConfig_autoStart = true;
+    var TogetherJSConfig_suppressInvite = true;
+    var TogetherJSConfig_cloneClicks = true;
+    var TogetherJSConfig_dontShowClicks = true;
+    var TogetherJSConfig_cacheBust = false;
+    var TogetherJSConfig_suppressJoinConfirmation = true;
+    var TogetherJSConfig_includeHashInUrl = true;
+    var TogetherJSConfig_ignoreMessages = ['cursor-update','scroll-update']
+    var TogetherJSConfig_ignoreForms = [':password','select'];
+</script>
+<script src="https://togetherjs.com/togetherjs-min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ext-language_tools.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ext-searchbox.js"></script>
@@ -79,14 +96,6 @@
 <script src="assets/js/common.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/main.js"></script>
-<script>
-    var TogetherJSConfig_autoStart = false;
-    var TogetherJSConfig_youtube = false;
-    var TogetherJSConfig_cloneClicks = false;
-    var TogetherJSConfig_dontShowClicks = true;
-    var TogetherJSConfig_suppressJoinConfirmation = false;
-    var TogetherJSConfig_ignoreForms = [':password','select'];
-</script>
-<script src="https://togetherjs.com/togetherjs-min.js"></script>
+
 </body>
 </html>

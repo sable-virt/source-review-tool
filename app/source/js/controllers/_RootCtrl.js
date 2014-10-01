@@ -17,7 +17,7 @@ angular.module('controllers').controller('RootCtrl', function($scope,$localStora
     var loadedEditor = [];
     var editors = {};
     $scope.onLoadEditor = function(editor) {
-        var id = editor.container.id;
+        var id = editor.container.getAttribute('data-mode');
         if (loadedEditor.indexOf(id) !== -1) return;
         loadedEditor.push(id);
         editors[id] = editor;
@@ -50,7 +50,7 @@ angular.module('controllers').controller('RootCtrl', function($scope,$localStora
         for (var key in editors) {
             editors[key].setFontSize(parseInt($scope.fontSize));
         }
-        $localStorage.fontSize = $scope.fontSize;
+        $localStorage.fontSize = parseInt($scope.fontSize);
     };
     $scope.changeTheme = function() {
         for (var key in editors) {
@@ -58,4 +58,5 @@ angular.module('controllers').controller('RootCtrl', function($scope,$localStora
         }
         $localStorage.theme = $scope.theme;
     };
+
 });
