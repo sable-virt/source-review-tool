@@ -1,1 +1,0 @@
-require('./controllers/_RootCtrl');
