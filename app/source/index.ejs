@@ -9,81 +9,82 @@
     <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
 <body ng-app="app" ng-controller="RootCtrl">
-<header class="settings">
-    <h1 class="title">Source Viewer <button class="btn btn-default" onclick="TogetherJS(this); return false;">Start TogetherJS</button></h1>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="html" ng-model="view.html"> HTML
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="sass" ng-model="view.scss"> SCSS
-    </label>
-    <label class="checkbox-inline">
-        <input type="checkbox" value="javascript" ng-model="view.javascript"> JavaScript
-    </label>
+<form>
+    <header class="settings">
+        <h1 class="title">Source Viewer <button class="btn btn-default" onclick="TogetherJS(this); return false;">Start TogetherJS</button></h1>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="html" ng-model="view.html"> HTML
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="sass" ng-model="view.scss"> SCSS
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" value="javascript" ng-model="view.javascript"> JavaScript
+        </label>
 
-    <select name="font-size" class="form-control" ng-model="fontSize" ng-change="changeFontSize()" ng-cloak>
-        <option value="12">12px</option>
-        <option value="14">14px</option>
-        <option value="16">16px</option>
-        <option value="18">18px</option>
-        <option value="20">20px</option>
-        <option value="22">22px</option>
-        <option value="24">24px</option>
-    </select>
+        <select name="font-size" class="form-control" ng-model="fontSize" ng-change="changeFontSize()" ng-cloak>
+            <option value="12">12px</option>
+            <option value="14">14px</option>
+            <option value="16">16px</option>
+            <option value="18">18px</option>
+            <option value="20">20px</option>
+            <option value="22">22px</option>
+            <option value="24">24px</option>
+        </select>
 
-    <select name="theme" class="form-control" ng-model="theme" ng-change="changeTheme()" ng-cloak>
-        <option value="monokai">monokai</option>
-        <option value="ambiance">ambiance</option>
-        <option value="chaos">chaos</option>
-        <option value="chrome">chrome</option>
-        <option value="clouds">clouds</option>
-        <option value="clouds_midnight">clouds_midnight</option>
-        <option value="cobalt">cobalt</option>
-        <option value="crimson_editor">crimson_editor</option>
-        <option value="dawn">dawn</option>
-        <option value="dreamweaver">dreamweaver</option>
-        <option value="eclipse">eclipse</option>
-        <option value="github">github</option>
-        <option value="idle_fingers">idle_fingers</option>
-        <option value="katzenmilch">katzenmilch</option>
-        <option value="kr_theme">kr_theme</option>
-        <option value="kuroir">kuroir</option>
-        <option value="merbivore">merbivore</option>
-        <option value="merbivore_soft">merbivore_soft</option>
-        <option value="mono_industrial">mono_industrial</option>
-        <option value="pastel_on_dark">pastel_on_dark</option>
-        <option value="solarized_dark">solarized_dark</option>
-        <option value="solarized_light">solarized_light</option>
-        <option value="terminal">terminal</option>
-        <option value="textmate">textmate</option>
-        <option value="tomorrow">tomorrow</option>
-        <option value="tomorrow_night">tomorrow_night</option>
-        <option value="tomorrow_night_blue">tomorrow_night_blue</option>
-        <option value="tomorrow_night_bright">tomorrow_night_bright</option>
-        <option value="tomorrow_night_eighties">tomorrow_night_eighties</option>
-        <option value="twilight">twilight</option>
-        <option value="vibrant_ink">vibrant_ink</option>
-        <option value="xcode">xcode</option>
-    </select>
-</header>
-<form id="editors">
-    <div id="html" class="col-xs-{{column}}" ng-cloak ng-show="view.html">
-        <div data-mode="html" ui-ace="{onLoad:onLoadEditor}" ng-model="html"></div>
-    </div>
-    <div id="scss" class="col-xs-{{column}}" ng-cloak ng-show="view.scss">
-        <div data-mode="scss" ui-ace="{onLoad:onLoadEditor}" ng-model="scss" ></div>
-    </div>
-    <div id="javascript" class="col-xs-{{column}}" ng-cloak ng-show="view.javascript">
-        <div data-mode="javascript" ui-ace="{onLoad:onLoadEditor}" ng-model="javascript"></div>
+        <select name="theme" class="form-control" ng-model="theme" ng-change="changeTheme()" ng-cloak>
+            <option value="monokai">monokai</option>
+            <option value="ambiance">ambiance</option>
+            <option value="chaos">chaos</option>
+            <option value="chrome">chrome</option>
+            <option value="clouds">clouds</option>
+            <option value="clouds_midnight">clouds_midnight</option>
+            <option value="cobalt">cobalt</option>
+            <option value="crimson_editor">crimson_editor</option>
+            <option value="dawn">dawn</option>
+            <option value="dreamweaver">dreamweaver</option>
+            <option value="eclipse">eclipse</option>
+            <option value="github">github</option>
+            <option value="idle_fingers">idle_fingers</option>
+            <option value="katzenmilch">katzenmilch</option>
+            <option value="kr_theme">kr_theme</option>
+            <option value="kuroir">kuroir</option>
+            <option value="merbivore">merbivore</option>
+            <option value="merbivore_soft">merbivore_soft</option>
+            <option value="mono_industrial">mono_industrial</option>
+            <option value="pastel_on_dark">pastel_on_dark</option>
+            <option value="solarized_dark">solarized_dark</option>
+            <option value="solarized_light">solarized_light</option>
+            <option value="terminal">terminal</option>
+            <option value="textmate">textmate</option>
+            <option value="tomorrow">tomorrow</option>
+            <option value="tomorrow_night">tomorrow_night</option>
+            <option value="tomorrow_night_blue">tomorrow_night_blue</option>
+            <option value="tomorrow_night_bright">tomorrow_night_bright</option>
+            <option value="tomorrow_night_eighties">tomorrow_night_eighties</option>
+            <option value="twilight">twilight</option>
+            <option value="vibrant_ink">vibrant_ink</option>
+            <option value="xcode">xcode</option>
+        </select>
+    </header>
+    <div id="editors">
+        <div id="html" class="col-xs-{{column}}" ng-cloak ng-show="view.html">
+            <div data-mode="html" ui-ace="{onLoad:onLoadEditor}" ng-model="html"></div>
+        </div>
+        <div id="scss" class="col-xs-{{column}}" ng-cloak ng-show="view.scss">
+            <div data-mode="scss" ui-ace="{onLoad:onLoadEditor}" ng-model="scss" ></div>
+        </div>
+        <div id="javascript" class="col-xs-{{column}}" ng-cloak ng-show="view.javascript">
+            <div data-mode="javascript" ui-ace="{onLoad:onLoadEditor}" ng-model="javascript"></div>
+        </div>
     </div>
 </form>
 <script>
     var TogetherJSConfig_autoStart = true;
     var TogetherJSConfig_suppressInvite = true;
-    var TogetherJSConfig_cloneClicks = true;
+    var TogetherJSConfig_cloneClicks = false;
     var TogetherJSConfig_dontShowClicks = true;
     var TogetherJSConfig_suppressJoinConfirmation = true;
-    var TogetherJSConfig_ignoreForms = [':password','select'];
 </script>
 <script src="https://togetherjs.com/togetherjs-min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>

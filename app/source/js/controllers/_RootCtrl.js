@@ -58,5 +58,4 @@ angular.module('controllers').controller('RootCtrl', function($scope,$localStora
         }
         $localStorage.theme = $scope.theme;
     };
-
 });
