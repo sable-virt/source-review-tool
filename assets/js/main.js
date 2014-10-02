@@ -68,7 +68,6 @@ webpackJsonp([1],[
 	        }
 	        $localStorage.theme = $scope.theme;
 	    };
-	
 	});
 
 
