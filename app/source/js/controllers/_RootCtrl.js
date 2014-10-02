@@ -1,7 +1,7 @@
 angular.module('controllers').controller('RootCtrl', function($scope,$localStorage) {
     $localStorage.$default({
         theme: 'monokai',
-        fontSize: '14px'
+        fontSize: 14
     });
     var EDITOR_TYPES = ['html','scss','javascript'];
     $scope.value = 'NowLoading...';
