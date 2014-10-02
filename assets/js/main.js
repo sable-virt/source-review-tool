@@ -2,13 +2,76 @@ webpackJsonp([1],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("__webpack_require__(1);\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/source/js/main.js\n ** module id = 0\n ** module chunks = 1\n **/\n//# sourceURL=webpack:///./app/source/js/main.js?");
+	__webpack_require__(1);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("angular.module('controllers').controller('RootCtrl', function($scope,$localStorage) {\n    $localStorage.$default({\n        theme: 'monokai',\n        fontSize: '14px'\n    });\n    var EDITOR_TYPES = ['html','scss','javascript'];\n    $scope.value = 'NowLoading...';\n    $scope.theme = $localStorage.theme;\n    $scope.fontSize = $localStorage.fontSize;\n    $scope.view = {\n        html: true,\n        scss: true,\n        javascript: true\n    };\n    $scope.column = 3;\n\n    var loadedEditor = [];\n    var editors = {};\n    $scope.onLoadEditor = function(editor) {\n        var id = editor.container.getAttribute('data-mode');\n        if (loadedEditor.indexOf(id) !== -1) return;\n        loadedEditor.push(id);\n        editors[id] = editor;\n        var session = editor.getSession();\n        session.setMode('ace/mode/' + id);\n        editor.setOptions({\n            showPrintMargin: false,\n            enableSnippets: true,\n            enableBasicAutocompletion: true\n        });\n        if (loadedEditor.length === 3) {\n            loadedComplete();\n        }\n    };\n    function loadedComplete() {\n        $scope.changeTheme();\n        $scope.changeFontSize();\n    }\n\n    $scope.$watch('view', function() {\n        var count = 0;\n        for (var key in $scope.view) {\n            if ($scope.view[key] == true) {\n                ++count;\n            }\n        }\n        $scope.column = 12 / count;\n    },true);\n    $scope.changeFontSize = function() {\n        for (var key in editors) {\n            editors[key].setFontSize(parseInt($scope.fontSize));\n        }\n        $localStorage.fontSize = parseInt($scope.fontSize);\n    };\n    $scope.changeTheme = function() {\n        for (var key in editors) {\n            editors[key].setTheme('ace/theme/' + $scope.theme);\n        }\n        $localStorage.theme = $scope.theme;\n    };\n\n});\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./app/source/js/controllers/_RootCtrl.js\n ** module id = 1\n ** module chunks = 1\n **/\n//# sourceURL=webpack:///./app/source/js/controllers/_RootCtrl.js?");
+	angular.module('controllers').controller('RootCtrl', function($scope,$localStorage) {
+	    $localStorage.$default({
+	        theme: 'monokai',
+	        fontSize: 14
+	    });
+	    var EDITOR_TYPES = ['html','scss','javascript'];
+	    $scope.value = 'NowLoading...';
+	    $scope.theme = $localStorage.theme;
+	    $scope.fontSize = $localStorage.fontSize;
+	    $scope.view = {
+	        html: true,
+	        scss: true,
+	        javascript: true
+	    };
+	    $scope.column = 3;
+	
+	    var loadedEditor = [];
+	    var editors = {};
+	    $scope.onLoadEditor = function(editor) {
+	        var id = editor.container.getAttribute('data-mode');
+	        if (loadedEditor.indexOf(id) !== -1) return;
+	        loadedEditor.push(id);
+	        editors[id] = editor;
+	        var session = editor.getSession();
+	        session.setMode('ace/mode/' + id);
+	        editor.setOptions({
+	            showPrintMargin: false,
+	            enableSnippets: true,
+	            enableBasicAutocompletion: true
+	        });
+	        if (loadedEditor.length === 3) {
+	            loadedComplete();
+	        }
+	    };
+	    function loadedComplete() {
+	        $scope.changeTheme();
+	        $scope.changeFontSize();
+	    }
+	
+	    $scope.$watch('view', function() {
+	        var count = 0;
+	        for (var key in $scope.view) {
+	            if ($scope.view[key] == true) {
+	                ++count;
+	            }
+	        }
+	        $scope.column = 12 / count;
+	    },true);
+	    $scope.changeFontSize = function() {
+	        for (var key in editors) {
+	            editors[key].setFontSize(parseInt($scope.fontSize));
+	        }
+	        $localStorage.fontSize = parseInt($scope.fontSize);
+	    };
+	    $scope.changeTheme = function() {
+	        for (var key in editors) {
+	            editors[key].setTheme('ace/theme/' + $scope.theme);
+	        }
+	        $localStorage.theme = $scope.theme;
+	    };
+	
+	});
+
 
 /***/ }
 ]);
+//# sourceMappingURL=map/main.js.map
